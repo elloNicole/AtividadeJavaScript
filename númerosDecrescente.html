@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Decrescente</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="coluna_esquerda">
+            <ul>
+                <li><strong><p>Exercícios:</p></strong></li>
+                <li><a href="index.html">1.Soma</a></li>
+                <li><a href="senha.html">2.Senha</a></li>
+                <li><a href="soma_dez.html">3.Soma Dez</a></li>
+                <li><a href="intervalo.html">4.Intervalo</a></li>
+                <li><a href="maior.html">5.Maior</a></li>
+                <li><a href="maior_menor.html">6.Maior e Menor</a></li>
+                <li><a href="menor.html">7.Menor</a></li>
+                <li><a href="crescente.html">8.Crescente c/ alert</a></li>
+                <li><a href="númerosDecrescente.html">9.Números Decrescentes c/ alert</a></li>
+                <li><a href="peso.html">10.Peso</a></li>
+                <li><a href="par_impar.html">11.Par e impar</a></li>
+                <li><a href="multiplo_3.html">12.Multiplo de 3</a></li>
+                <li><a href="nota.html">13.Nota válida</a></li>
+                <li><a href="senha_valida.html">14.Senha valida</a></li>
+                <li><a href="cadastro.html">15.Cadastro</a></li>
+                <li><a href="numeros1a20.html">16.Números 1 a 20</a></li>
+                <li><a href="impares.html">17.Impares</a></li>
+                <li><a href="intervalo_inteiros.html">18.Intervalo de inteiros</a></li>
+            </ul>
+        </div>  
+       
+                
+        <div class="conteiner_center">
+            <div class="elementos">
+                <h1>Atividade JavaScript </h1><br>
+                <div class="td">
+                    <h1>Digite obrigatóriamente 3 números crescentes <br>e o último, que não siga esta regra:</h1>
+                    <p>em números reais use o ponto(.)</p>
+                        <form>
+                            <input type="text" placeholder="valor 1" class="inTxt" id="inTxt"><br><br>  
+                            <input type="text" placeholder="valor 2" class="inTxt1" id="inTxt1"><br><br>  
+                            <input type="text" placeholder="valor 3" class="inTxt2" id="inTxt2"><br><br> 
+                            <input type="text" placeholder="valor 4" class="inTxt1" id="inTxt3"><br><br> 
+                            <input type="submit" value="envio" class="btn" id="btn">
+
+                        </form>
+                    
+                        <p>Os valores em ordem Decrescente:</p>
+                        <h2 id="primeiro"></h2>
+                        <h2 id="segundo"></h2>
+                        <h2 id="terceiro"></h2>
+                        <h2 id="quarto"></h2>
+                   <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const frm =document.querySelector("form");
+    const resultado1 = document.getElementById("primeiro");
+    const resultado2 = document.getElementById("segundo");
+    const resultado3 = document.getElementById("terceiro");
+    const resultado4 = document.getElementById("quarto");
+
+   frm.addEventListener("submit" , (e) => {
+    e.preventDefault();
+
+    var valor1=parseFloat(frm.inTxt.value);  
+    var valor2=parseFloat(frm.inTxt1.value);
+    var valor3=parseFloat(frm.inTxt2.value);
+    var valor4 = parseFloat(frm.inTxt3.value);
+        
+    var maior, menor, meio;
+            
+    if (valor1 === valor2 || valor1 === valor3 || valor2 === valor3) {
+        alert("Digite números diferentes!");
+    } else if (valor1 < valor2 && valor2 < valor3) {
+            maior = valor3;
+            menor = valor1;
+            meio = valor2;
+    }else{
+        alert("Os três primeiros números devem estar em ordem crescente. Tente novamente!");
+        return;
+    }
+    
+    if (valor4>maior){
+        alert("O último número não deve seguir a regra de ordem crescente. Tente novamente!");
+     } else {
+                var vetor= []; 
+            
+                vetor[0] = menor;
+                vetor[1] = meio;
+                vetor[2] = maior;
+                vetor[3] = valor4;
+
+                for (let i = 0; i < 4; i++) {
+                    for(let j=0; j < 4; j++ ){
+                        if(vetor[i]>vetor[j]){
+                            aux=vetor[i];
+                            vetor[i]=vetor[j];
+                            vetor[j]=aux;
+                        }
+                    }
+
+                resultado1.textContent=vetor[0];
+                resultado2.textContent=vetor[1];
+                resultado3.textContent=vetor[2];
+                resultado4.textContent=vetor[3];
+                }
+            }
+        
+    });
+   
+ </script>     
+</html>

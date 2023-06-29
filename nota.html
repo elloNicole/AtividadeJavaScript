@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Vereficar Nota</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="coluna_esquerda">
+            <ul>
+                <li><strong><p>Exercícios:</p></strong></li>
+                <li><a href="index.html">1.Soma</a></li>
+                <li><a href="senha.html">2.Senha</a></li>
+                <li><a href="soma_dez.html">3.Soma Dez</a></li>
+                <li><a href="intervalo.html">4.Intervalo</a></li>
+                <li><a href="maior.html">5.Maior</a></li>
+                <li><a href="maior_menor.html">6.Maior e Menor</a></li>
+                <li><a href="menor.html">7.Menor</a></li>
+                <li><a href="crescente.html">8.Crescente c/ alert</a></li>
+                <li><a href="númerosDecrescente.html">9.Números Decrescentes c/ alert</a></li>
+                <li><a href="peso.html">10.Peso</a></li>
+                <li><a href="par_impar.html">11.Par e impar</a></li>
+                <li><a href="multiplo_3.html">12.Multiplo de 3</a></li>
+                <li><a href="nota.html">13.Nota válida</a></li>
+                <li><a href="senha_valida.html">14.Senha valida</a></li>
+                <li><a href="cadastro.html">15.Cadastro</a></li>
+                <li><a href="numeros1a20.html">16.Números 1 a 20</a></li>
+                <li><a href="impares.html">17.Impares</a></li>
+                <li><a href="intervalo_inteiros.html">18.Intervalo de inteiros</a></li>
+            </ul>
+        </div>  
+       
+                
+        <div class="conteiner_center">
+            <div class="elementos">
+                <h1>Atividade JavaScript </h1><br>
+                <div class="td">
+                        <h1 >Digite uma nota entre zero e dez</h1>
+                        <p>em números reais use o ponto(.)</p>
+                        <form>
+                            <input type="number" placeholder="Digite um número" id="number"><br><br>
+                            <input type="button" value="Verificar" onclick="checkNota()" class="btn">
+                      </form>
+
+                      <h2 id="result"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const numberInput = document.getElementById("number");
+    const result = document.getElementById("result");
+
+    function checkNota() {
+        const nota = parseFloat(numberInput.value);
+
+        if (isNaN(nota) || nota <= 0 || nota >= 10) {
+            alert("Valor inválido! Digite uma nota entre zero e dez.");
+        } else {
+            result.textContent = "Valor válido: " + nota;
+        }
+    }
+</script>
+
+
+ 
+</html>

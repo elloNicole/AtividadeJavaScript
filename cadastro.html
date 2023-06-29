@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="coluna_esquerda">
+            <ul>
+                <li><strong><p>Exercícios:</p></strong></li>
+                <li><a href="index.html">1.Soma</a></li>
+                <li><a href="senha.html">2.Senha</a></li>
+                <li><a href="soma_dez.html">3.Soma Dez</a></li>
+                <li><a href="intervalo.html">4.Intervalo</a></li>
+                <li><a href="maior.html">5.Maior</a></li>
+                <li><a href="maior_menor.html">6.Maior e Menor</a></li>
+                <li><a href="menor.html">7.Menor</a></li>
+                <li><a href="crescente.html">8.Crescente c/ alert</a></li>
+                <li><a href="númerosDecrescente.html">9.Números Decrescentes c/ alert</a></li>
+                <li><a href="peso.html">10.Peso</a></li>
+                <li><a href="par_impar.html">11.Par e impar</a></li>
+                <li><a href="multiplo_3.html">12.Multiplo de 3</a></li>
+                <li><a href="nota.html">13.Nota válida</a></li>
+                <li><a href="senha_valida.html">14.Senha valida</a></li>
+                <li><a href="cadastro.html">15.Cadastro</a></li>
+                <li><a href="numeros1a20.html">16.Números 1 a 20</a></li>
+                <li><a href="impares.html">17.Impares</a></li>
+                <li><a href="intervalo_inteiros.html">18.Intervalo de inteiros</a></li>
+            </ul>
+        </div>  
+       
+                
+        <div class="conteiner_center">
+            <div class="elementos">
+                <h1>Atividade JavaScript</h1><br>
+                <div class="td">
+                    <h1>Preencha os dados:</h1>
+                    <p>Possui validação dos dados!</p>
+                    <form id="form">
+                        <input type="text" placeholder="Nome" id="nome"><br><br>
+                        <input type="number" placeholder="Idade" id="idade"><br><br>
+                        <input type="number" placeholder="Salário" id="salario"><br><br>
+                        <input type="text" placeholder="Sexo" id="sexo"><br><br>
+                        <input type="text" placeholder="Estado Civil" id="estadoCivil"><br><br>
+                        <input type="button" value="Enviar" onclick="validarDados()" class="btn">
+                    </form>
+        
+                    <h2 id="result"></h2>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function validarDados() {
+                var nome = document.getElementById("nome").value;
+                var idade = parseInt(document.getElementById("idade").value);
+                var salario = parseFloat(document.getElementById("salario").value);
+                var sexo = document.getElementById("sexo").value;
+                var estadoCivil = document.getElementById("estadoCivil").value;
+        
+                if (nome.length <= 3 || idade < 0 || idade > 150 || salario <= 0 || (sexo !== "f" && sexo !== "m") || (estadoCivil !== "s" && estadoCivil !== "c" && estadoCivil !== "v" && estadoCivil !== "d")) {
+                    alert("Dados inválidos! Verifique os campos e tente novamente.");
+                } else {
+                    alert("Dados válidos! Registro realizado com sucesso.");
+                    // Aqui você pode adicionar a lógica para enviar os dados do formulário ou realizar outras ações necessárias
+                }
+            }
+        </script>
+        
+</html>
