@@ -38,23 +38,41 @@
             <div class="elementos">
                 <h1>Atividade JavaScript</h1><br>
                 <div class="td">
-                    <h1>Números Ímpares de 1 a 50</h1>
-                    <pre id="oddNumbers"></pre>
+                    <h1>Intervalo de Números Inteiros</h1>
+                    <form>
+                        <label for="numero1">Número 1:</label>
+                        <input type="number" id="numero1" min="0" step="1"><br><br>
+                        <label for="numero2">Número 2:</label>
+                        <input type="number" id="numero2" min="0" step="1"><br><br>
+                        <input type="button" value="Gerar Intervalo" onclick="gerarIntervalo()" class="btn">
+                    </form>
+                    <pre id="resultado"></pre>
                 </div>
             </div>
         </div>
         
         <script>
-            var oddNumbers = document.getElementById("oddNumbers");
+            function gerarIntervalo() {
+                var numero1 = parseInt(document.getElementById("numero1").value);
+                var numero2 = parseInt(document.getElementById("numero2").value);
         
-            // Imprimir números ímpares de 1 a 50
-            var output = "";
-            for (var i = 1; i <= 50; i += 2) {
-                output += i + "\n";
+                if (isNaN(numero1) || isNaN(numero2)) {
+                    alert("Digite valores numéricos válidos.");
+                    return;
+                }
+        
+                var resultado = document.getElementById("resultado");
+                resultado.textContent = "";
+        
+                if (numero1 <= numero2) {
+                    for (var i = numero1; i <= numero2; i++) {
+                        resultado.textContent += i + "\n";
+                    }
+                } else {
+                    for (var i = numero1; i >= numero2; i--) {
+                        resultado.textContent += i + "\n";
+                    }
+                }
             }
-            oddNumbers.textContent = output;
         </script>
-        
-
- 
 </html>
